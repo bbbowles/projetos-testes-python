@@ -1,0 +1,37 @@
+import sys
+coords=[]
+ataque = ""
+
+# batalha naval simples, single player e sem display do tabuleiro
+
+def inputBarcos():
+    barcos = 3
+    while barcos>0:
+        casa = input("voce tem "+str(barcos)+" barcos ainda, digite qual casa colocar(ex:A1)")
+        coords.append(casa)
+        barcos-=1
+
+def atacar():
+    ataque = input("qual casa gostaria de atacar")
+    if ataque in coords:
+        coords.remove(ataque)
+        print("boom!, voce acertou um navio")
+    else:
+        print("voce nao acertou nada!")
+
+def isGameOver():
+    if coords == []:
+        print("o jogo acabou! voce venceu!")
+        sys.exit()
+
+inputBarcos()
+while True:
+    atacar()
+    isGameOver()
+
+#   1 2 3 4 5
+# a
+# b
+# c
+# d 
+# e
